@@ -58,10 +58,10 @@ func main() {
 }
 
 func getBlock(n interface{}, i int) {
-	url := rpcUrl
+	url := localConfig.rpcUrl
 
 	headers := map[string]string{
-		"Content-Type": contentType,
+		"Content-Type": localConfig.contentType,
 	}
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
