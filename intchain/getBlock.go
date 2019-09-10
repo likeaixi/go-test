@@ -8,33 +8,33 @@ import (
 )
 
 type Result struct {
-	Difficulty       string         `json:"difficulty"`
-	ExtraData        string         `json:"extraData"`
-	GasLimit         string         `json:"gasLimit"`
-	GasUsed          string         `json:"gasused"`
-	Hash             string         `json:"hash"`
-	LogsBloom        string         `json:"logsBloom"`
-	MainChainNumber  string         `json:"mainchainNumber"`
-	Miner            string         `json:"miner"`
-	MixHash          string         `json:"mixHash"`
-	Nonce            string         `json:"nonce"`
-	Number           string         `json:"number"`
-	ParentHash       string         `json:"parentHash"`
-	ReceiptsRoot     string         `json:"receiptsRoot"`
-	Sha3Uncles       string         `json:"sha2Uncles"`
-	Size             string         `json:"size"`
-	StateRoot        string         `json:"stateRoot"`
-	Timestamp        string         `json:"timestamp"`
-	TotalDifficulty  string         `json:"totalDifficulty"`
-	Transactions     []interface{}  `json:"transactions"`
-	TransactionsRoot string         `json:"transactionsRoot"`
-	Uncles           []interface{}  `json:"uncles"`
+	Difficulty       string        `json:"difficulty"`
+	ExtraData        string        `json:"extraData"`
+	GasLimit         string        `json:"gasLimit"`
+	GasUsed          string        `json:"gasused"`
+	Hash             string        `json:"hash"`
+	LogsBloom        string        `json:"logsBloom"`
+	MainChainNumber  string        `json:"mainchainNumber"`
+	Miner            string        `json:"miner"`
+	MixHash          string        `json:"mixHash"`
+	Nonce            string        `json:"nonce"`
+	Number           string        `json:"number"`
+	ParentHash       string        `json:"parentHash"`
+	ReceiptsRoot     string        `json:"receiptsRoot"`
+	Sha3Uncles       string        `json:"sha2Uncles"`
+	Size             string        `json:"size"`
+	StateRoot        string        `json:"stateRoot"`
+	Timestamp        string        `json:"timestamp"`
+	TotalDifficulty  string        `json:"totalDifficulty"`
+	Transactions     []interface{} `json:"transactions"`
+	TransactionsRoot string        `json:"transactionsRoot"`
+	Uncles           []interface{} `json:"uncles"`
 }
 
 type Body struct {
-	JsonRPC   string    `json:"jsonrpc"`
-	ID        string    `json:"id"`
-	Result    Result    `json:"result"`
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  Result `json:"result"`
 }
 
 var blockNumber *big.Int
@@ -47,30 +47,27 @@ func main() {
 	fmt.Printf("blockNumber=%v\n", blockNumber)
 
 	searchNumber := big.NewInt(0)
-	shift := big.NewInt(500)
+	shift := big.NewInt(2000)
 	searchNumber.Sub(blockNumber, shift)
 	fmt.Printf("searchNumber=%v\n", searchNumber)
-
 
 	for i := 0; big.NewInt(int64(i)).Cmp(shift) < 0; i++ {
 		getBlock("0x"+(big.NewInt(0).Add(searchNumber, big.NewInt(int64(i)))).Text(16), i)
 	}
 
-
 }
 
-
 func getBlock(n interface{}, i int) {
-	url := "http://127.0.0.1:8545/intchain"
+	url := rpcUrl
 
 	headers := map[string]string{
-		"Content-Type": "application/json",
+		"Content-Type": contentType,
 	}
-	postData := map[string]interface{} {
+	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
-		"method": "eth_getBlockByNumber",
-		"params": []interface{}{n, true},
-		"id": "1",
+		"method":  "eth_getBlockByNumber",
+		"params":  []interface{}{n, true},
+		"id":      "1",
 	}
 
 	req := curl.NewRequest()
@@ -83,7 +80,7 @@ func getBlock(n interface{}, i int) {
 	var r Body
 	if err != nil {
 		fmt.Printf(" 获取区块失败，err=%v\n", err)
-	}else {
+	} else {
 		if resp.IsOk() {
 			//fmt.Printf("获取区块成功，body=%v\n", resp.Body)
 			if err := json.Unmarshal([]byte(resp.Body), &r); err == nil {
@@ -101,17 +98,17 @@ func getBlock(n interface{}, i int) {
 						}
 
 						blockTime = t
-					}else if i == 0 {
+					} else if i == 0 {
 						blockTime = hexToBigInt(result.Timestamp)
-					}else {
+					} else {
 						blockNumber = hexToBigInt(r.Result.Number)
 					}
 				}
 
-			}else {
+			} else {
 				fmt.Printf("解析数据失败， err=%v\n", err)
 			}
-		}else {
+		} else {
 			fmt.Printf("获取区块失败，raw=%v\n", resp.Raw)
 		}
 	}
