@@ -58,10 +58,11 @@ func main() {
 }
 
 func getBlock(n interface{}, i int) {
-	url := localConfig.rpcUrl
+	//url := "http://127.0.0.1:8545/intchain"
+	url := "http://127.0.0.1:7000/intchain"
 
 	headers := map[string]string{
-		"Content-Type": localConfig.contentType,
+		"Content-Type": "application/json",
 	}
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
@@ -93,9 +94,9 @@ func getBlock(n interface{}, i int) {
 						t := hexToBigInt(result.Timestamp)
 						cTime := big.NewInt(0)
 
-						if txNumber > 200 {
-							fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime))
-						}
+						//if txNumber > 200 {
+						fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v, miner=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime), result.Miner)
+						//}
 
 						blockTime = t
 					} else if i == 0 {
