@@ -25,7 +25,8 @@ func main() {
 	//s := `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from": "0x37eeb099c6d751e7229df825d40629612e134f82","to": "0x6ee600fc8e27c562a63ff5e56d1b788bca6f5c2e","gas": "0x76c0","gasPrice": "0x2540be400","value": "0x1","data": ""}],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:7000/intchain`
 
 	//url := "http://127.0.0.1:8545/intchain"
-	url := "http://127.0.0.1:7000/intchain"
+	//url := "http://127.0.0.1:7000/intchain"
+	url := "http://127.0.0.1:6968/intchain"
 
 	headers := map[string]string{
 		"Content-Type": "application/json",
@@ -42,19 +43,19 @@ func main() {
 		Data:     "0x60606040523415600e57600080fd5b60d38061001c6000396000f300606060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663c6888fa181146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b60007f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da8260070260405190815260200160405180910390a150600702905600a165627a7a7230582093e2ed97247c1e6c1d67df14ef4f815ae6eaeaedd13aa85f4cce214602a91a310029",
 	}
 
-	sendTransaction(url, headers, params)
+	//sendTransaction(url, headers, params)
 
-	//params = TxParams{
-	//	//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-	//	From:     "0x52bc4024a38f88d2ee1afde012eedead3bc960bf",
-	//	To:       "0x6ee600fc8e27c562a63ff5e56d1b788bca6f5c2e",
-	//	Gas:      "0x76c0",
-	//	GasPrice: "0x2540be400",
-	//	Value:    "0x1",
-	//	Data:     "",
-	//}
-	//
-	//sendTransactions(url, headers, params)
+	params = TxParams{
+		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
+		From:     "32H8py5Jg396p7QNDUwTwkeVod15ksxne5",
+		To:       "3LPkVNtCACVZTRtQV4xNA1WefbiiNoxvd3",
+		Gas:      "0x76c0",
+		GasPrice: "0x2540be400",
+		Value:    "0x1",
+		Data:     "",
+	}
+
+	sendTransactions(url, headers, params)
 
 }
 
@@ -94,7 +95,7 @@ func sendTransactions(url string, headers map[string]string, params TxParams) (h
 		"id":      "1",
 	}
 
-	for i := 0; i < 100000; i++ {
+	for i := 0; i < 10; i++ {
 		req := curl.NewRequest()
 		resp, err := req.
 			SetUrl(url).
