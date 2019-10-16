@@ -48,11 +48,12 @@ func main() {
 	params = TxParams{
 		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
 		From:     "32H8py5Jg396p7QNDUwTwkeVod15ksxne5",
-		To:       "3LPkVNtCACVZTRtQV4xNA1WefbiiNoxvd3",
+		To:       "3MYHqZoJFTf4ToYBaBQfiZ8YJhXXDkXSNf",
 		Gas:      "0x76c0",
 		GasPrice: "0x2540be400",
-		Value:    "0x1",
-		Data:     "",
+		//Value:    "0x1",
+		Value: "0x33b2e3c9fd0803ce8000000",
+		Data:  "",
 	}
 
 	sendTransactions(url, headers, params)

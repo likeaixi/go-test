@@ -21,7 +21,7 @@ type Result struct {
 	Number           string        `json:"number"`
 	ParentHash       string        `json:"parentHash"`
 	ReceiptsRoot     string        `json:"receiptsRoot"`
-	Sha3Uncles       string        `json:"sha2Uncles"`
+	Sha3Uncles       string        `json:"sha3Uncles"`
 	Size             string        `json:"size"`
 	StateRoot        string        `json:"stateRoot"`
 	Timestamp        string        `json:"timestamp"`
@@ -58,8 +58,9 @@ func main() {
 }
 
 func getBlock(n interface{}, i int) {
-	url := "http://127.0.0.1:8545/intchain"
+	//url := "http://127.0.0.1:8545/intchain"
 	//url := "http://127.0.0.1:7000/intchain"
+	url := "http://127.0.0.1:6968/intchain"
 
 	headers := map[string]string{
 		"Content-Type": "application/json",
@@ -83,9 +84,9 @@ func getBlock(n interface{}, i int) {
 		fmt.Printf(" 获取区块失败，err=%v\n", err)
 	} else {
 		if resp.IsOk() {
-			//fmt.Printf("获取区块成功，body=%v\n", resp.Body)
+			fmt.Printf("获取区块成功，body=%v\n", resp.Body)
 			if err := json.Unmarshal([]byte(resp.Body), &r); err == nil {
-				//fmt.Printf("Result %v\n", r)
+				fmt.Printf("Result %v\n", r)
 				result := r.Result
 				if result.Number != "" {
 					if i > 0 {

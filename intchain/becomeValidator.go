@@ -1,58 +1,68 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/mikemintang/go-curl"
+	"go-test/intchain/config"
+	"go-test/intchain/utils"
 )
 
 func main() {
-	getCurrentEpochNumber()
+	epochNumber, err := getCurrentEpochNumber()
+	if err != nil {
+		fmt.Printf("获取epoch number失败 err=%v\n", err)
+	}
+	fmt.Printf("epochNumber=%v\n", epochNumber)
+
+	epoch, err := getEpoch(epochNumber)
+	if err != nil {
+		fmt.Printf("获取epoch 失败 err=%v\n", err)
+	}
+	fmt.Printf("epoch=%v\n", epoch)
 }
 
-func getCurrentEpochNumber() (number string) {
+func getCurrentEpochNumber() (number interface{}, err error) {
+	var r config.EpochNumberRPC
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
-		"method":  "eth_getBlockByNumber",
+		"method":  "tdm_getCurrentEpochNumber",
 		"params":  []interface{}{},
 		"id":      "1",
 	}
-
-	//resp, err := rpcRequest(postData)
-	//if err == nil {
-	//	if resp.IsOk() {
-	//
-	//	}else {
-	//		fmt.Printf()
-	//	}
-	//}else {
-	//	fmt.Printf("获取Epoch失败：err=%v\n", err)
-	//}
-
-	return "0x1"
+	resp, err := utils.RpcRequest(postData)
+	if err != nil {
+		fmt.Printf("获取 Epoch Number失败, err=%v\n", err)
+		return "-1", err
+	} else {
+		fmt.Printf("resp=%v\n", resp.Body)
+		err := json.Unmarshal([]byte(resp.Body), &r)
+		if err != nil {
+			return "-1", err
+		}
+		return r.Result, nil
+	}
 }
 
-//func getEpoch(url string, headers map[string]string)(epoch Epoch) {
-//
-//}
+func getEpoch(epochNumber interface{}) (epoch config.Epoch, err error) {
+	var epochR config.EpochRPC
 
-func rpcRequest(postData map[string]interface{}) (resp *curl.Response, err error) {
-	url := "http://127.0.0.1:7000/intchain"
-
-	headers := map[string]string{
-		"Content-Type": "application/json",
+	postData := map[string]interface{}{
+		"jsonrpc": "2.0",
+		"method":  "tdm_getEpoch",
+		"params":  []interface{}{epochNumber},
+		"id":      "1",
 	}
-
-	req := curl.NewRequest()
-
-	resp, err := req.
-		SetUrl(url).
-		SetHeaders(headers).
-		SetPostData(postData).
-		Post()
-
-	if err == nil {
-
+	resp, err := utils.RpcRequest(postData)
+	if err != nil {
+		fmt.Printf("获取 Epoch 失败, err=%v\n", err)
+		return epochR.Result, err
 	} else {
+		fmt.Printf("resp=%v\n", resp.Body)
+		err := json.Unmarshal([]byte(resp.Body), &epochR)
+		if err != nil {
+			return epochR.Result, err
+		}
 
+		return epochR.Result, nil
 	}
 }
