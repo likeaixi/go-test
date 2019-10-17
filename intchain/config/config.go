@@ -7,13 +7,6 @@ type Config struct {
 
 type Headers map[string]string
 
-// RPC 返回数据的结构体
-type RPCBody struct {
-	JsonRPC string `json:"jsonrpc"`
-	ID      string `json:"id"`
-	Result  string `json:"result"`
-}
-
 var LocalConfig = Config{
 	//rpcUrl:     "http://127.0.0.1:8545/intchain",
 	//rpcUrl:     "http://127.0.0.1:7000/intchain",
@@ -32,6 +25,13 @@ var RemoteConfig = Config{
 
 var ConHeaders = Headers{
 	"Content-Type": "application/json",
+}
+
+// RPC 返回数据的结构体
+type RPCBody struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
 }
 
 // Epoch RPC 数据
