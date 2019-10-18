@@ -25,8 +25,8 @@ func main() {
 	//s := `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from": "0x37eeb099c6d751e7229df825d40629612e134f82","to": "0x6ee600fc8e27c562a63ff5e56d1b788bca6f5c2e","gas": "0x76c0","gasPrice": "0x2540be400","value": "0x1","data": ""}],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:7000/intchain`
 
 	//url := "http://127.0.0.1:8545/intchain"
-	//url := "http://127.0.0.1:7000/intchain"
-	url := "http://127.0.0.1:6968/intchain"
+	url := "http://127.0.0.1:7000/intchain"
+	//url := "http://129.226.134.100:7000/intchain"
 
 	headers := map[string]string{
 		"Content-Type": "application/json",
@@ -47,13 +47,13 @@ func main() {
 
 	params = TxParams{
 		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-		From:     "32H8py5Jg396p7QNDUwTwkeVod15ksxne5",
-		To:       "3MYHqZoJFTf4ToYBaBQfiZ8YJhXXDkXSNf",
+		From:     "3K7YBykphE6N8jFGVbNAWfvor94i9nigU8",
+		To:       "3NLShPnY7WjNKui8Zf43WiixC27NwBqc2C",
 		Gas:      "0x76c0",
 		GasPrice: "0x2540be400",
-		//Value:    "0x1",
-		Value: "0x33b2e3c9fd0803ce8000000",
-		Data:  "",
+		Value:    "0x1",
+		//Value: "0x33b2e3c9fd0803ce8000000",
+		Data: "",
 	}
 
 	sendTransactions(url, headers, params)
