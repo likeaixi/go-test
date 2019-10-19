@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16af080-d97f-4974-9ad5-f5429267ceef" name="Default" comment="intchain: 修改发送交易地址">
+    <list default="true" id="e16af080-d97f-4974-9ad5-f5429267ceef" name="Default" comment="intchain: 修改 rpc provider">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intchain/getBlock.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/getBlock.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intchain/sendTransaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/sendTransaction.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,11 +21,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/intchain/sendTransaction.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
-              <folding>
-                <element signature="e#14#65#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="38">
+              <caret line="2" column="8" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -36,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/intchain/getBlock.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="655">
-              <caret line="95" column="201" selection-start-line="95" selection-start-column="201" selection-end-line="95" selection-end-column="201" />
+              <caret line="95" column="197" selection-start-line="95" selection-start-column="197" selection-end-line="95" selection-end-column="197" />
               <folding>
                 <element signature="e#14#94#0" expanded="true" />
               </folding>
@@ -213,6 +208,11 @@
               <item name="go-test" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
+            <path>
+              <item name="go-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;go-test&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -231,7 +231,7 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="settings.editor.selected.configurable" value="go.autoimport" />
+    <property name="settings.editor.selected.configurable" value="go.sdk" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -347,13 +347,13 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32920355" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978701" visible="true" weight="0.18053098" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4978701" weight="0.18053098" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4288518" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.27980295" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.31681415" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5021299" side_tool="true" weight="0.378882" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
@@ -399,7 +399,8 @@
     <MESSAGE value="intchain/config: 修改config 文件" />
     <MESSAGE value="intchain： rename getEpoch" />
     <MESSAGE value="intchain: 修改发送交易地址" />
-    <option name="LAST_COMMIT_MESSAGE" value="intchain: 修改发送交易地址" />
+    <MESSAGE value="intchain: 修改 rpc provider" />
+    <option name="LAST_COMMIT_MESSAGE" value="intchain: 修改 rpc provider" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../golang.org/x/tools/container/intsets/sparse.go">
@@ -757,7 +758,7 @@
     <entry file="file://$PROJECT_DIR$/intchain/getBlock.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="655">
-          <caret line="95" column="201" selection-start-line="95" selection-start-column="201" selection-end-line="95" selection-end-column="201" />
+          <caret line="95" column="197" selection-start-line="95" selection-start-column="197" selection-end-line="95" selection-end-column="197" />
           <folding>
             <element signature="e#14#94#0" expanded="true" />
           </folding>
@@ -766,11 +767,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/intchain/sendTransaction.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
-          <folding>
-            <element signature="e#14#65#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="38">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="8" />
         </state>
       </provider>
     </entry>
