@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/mikemintang/go-curl"
+	"go-test/intchain/config"
 	"math/big"
 )
 
@@ -58,13 +59,9 @@ func main() {
 }
 
 func getBlock(n interface{}, i int) {
-	//url := "http://127.0.0.1:8545/intchain"
-	//url := "http://127.0.0.1:7000/intchain"
-	url := "http://127.0.0.1:6968/intchain"
+	url := config.RemoteConfig.RpcUrl
 
-	headers := map[string]string{
-		"Content-Type": "application/json",
-	}
+	headers := config.ConHeaders
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
 		"method":  "eth_getBlockByNumber",
@@ -84,9 +81,9 @@ func getBlock(n interface{}, i int) {
 		fmt.Printf(" 获取区块失败，err=%v\n", err)
 	} else {
 		if resp.IsOk() {
-			fmt.Printf("获取区块成功，body=%v\n", resp.Body)
+			//fmt.Printf("获取区块成功，body=%v\n", resp.Body)
 			if err := json.Unmarshal([]byte(resp.Body), &r); err == nil {
-				fmt.Printf("Result %v\n", r)
+				//fmt.Printf("Result %v\n", r)
 				result := r.Result
 				if result.Number != "" {
 					if i > 0 {
@@ -95,9 +92,9 @@ func getBlock(n interface{}, i int) {
 						t := hexToBigInt(result.Timestamp)
 						cTime := big.NewInt(0)
 
-						if txNumber > 500 {
-							fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v, miner=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime), result.Miner)
-						}
+						//if txNumber > 500 {
+						fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v, miner=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime), result.Miner)
+						//}
 
 						blockTime = t
 					} else if i == 0 {
