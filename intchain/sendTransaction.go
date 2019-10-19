@@ -25,7 +25,7 @@ type TxParams struct {
 func main() {
 	//s := `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from": "0x37eeb099c6d751e7229df825d40629612e134f82","to": "0x6ee600fc8e27c562a63ff5e56d1b788bca6f5c2e","gas": "0x76c0","gasPrice": "0x2540be400","value": "0x1","data": ""}],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:7000/intchain`
 
-	url := config.RemoteConfig.RpcUrl
+	url := config.LocalConfig.RpcUrl
 
 	headers := config.ConHeaders
 
@@ -44,12 +44,13 @@ func main() {
 
 	params = TxParams{
 		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-		From:     "37wxLQMfw8EapdaGP8WtzrWk5GpMsGJTjx",
-		To:       "3Cn8hTKv51LXykBk7JEqfJvd4CEtCwFELH",
+		From:     "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
+		To:       "INT3EYrA3Z3wA1P3AhWyvbRFPyPznqbR",
 		Gas:      "0x76c0",
 		GasPrice: "0x2540be400",
 		//Value:    "0x1",
-		Value: "0x33b2e3c9fd0803ce8000000",
+		//Value: "0x33b2e3c9fd0803ce8000000",  // 1000000000e+18
+		Value: "0x152d02c7e14af6800000", // 100000e+18
 		Data:  "",
 	}
 

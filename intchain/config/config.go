@@ -8,8 +8,8 @@ type Config struct {
 type Headers map[string]string
 
 var LocalConfig = Config{
-	//rpcUrl:     "http://127.0.0.1:8545/intchain",
-	//rpcUrl:     "http://127.0.0.1:7000/intchain",
+	//RpcUrl:     "http://127.0.0.1:8545/intchain",
+	//RpcUrl:     "http://127.0.0.1:7000/intchain",
 	RpcUrl: "http://127.0.0.1:6968/intchain",
 	Headers: map[string]string{
 		"Content-Type": "application/json",
@@ -70,6 +70,12 @@ type Validator struct {
 
 // Delegation RPC  数据
 type DelegateRPC struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
+}
+
+type CandidateRPC struct {
 	JsonRPC string `json:"jsonrpc"`
 	ID      string `json:"id"`
 	Result  string `json:"result"`

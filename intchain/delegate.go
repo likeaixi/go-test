@@ -8,9 +8,9 @@ import (
 )
 
 type DelegateParams struct {
-	From   string `json:"from"`
-	To     string `json:"to"`
-	Amount string `json:"amount"`
+	From      string `json:"from"`
+	Candidate string `json:"candidate"`
+	Amount    string `json:"amount"`
 }
 
 func main() {
@@ -20,14 +20,14 @@ func main() {
 func delegate() {
 	var r config.DelegateRPC
 	params := DelegateParams{
-		From:   "3LPkVNtCACVZTRtQV4xNA1WefbiiNoxvd3",
-		To:     "32H8py5Jg396p7QNDUwTwkeVod15ksxne5",
-		Amount: "0x3635c9adc5dea00000", // 1000e18
+		From:      "INT361cPNXzfLP1Rn52vitzWBU5x5Nz7",
+		Candidate: "INT3DWAx9WMF7gscfaHGFByTEpjBt5Xs",
+		Amount:    "0x3635c9adc5dea00000", // 1000e18
 	}
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
 		"method":  "del_delegate",
-		"params":  []interface{}{params.From, params.To, params.Amount},
+		"params":  []interface{}{params.From, params.Candidate, params.Amount},
 		"id":      "1",
 	}
 	resp, err := utils.RpcRequest(postData)
