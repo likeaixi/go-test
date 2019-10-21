@@ -20,8 +20,8 @@ func main() {
 func delegate() {
 	var r config.DelegateRPC
 	params := DelegateParams{
-		From:      "INT361cPNXzfLP1Rn52vitzWBU5x5Nz7",
-		Candidate: "INT3DWAx9WMF7gscfaHGFByTEpjBt5Xs",
+		From:      "INT3EYrA3Z3wA1P3AhWyvbRFPyPznqbR",
+		Candidate: "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
 		Amount:    "0x3635c9adc5dea00000", // 1000e18
 	}
 	postData := map[string]interface{}{
@@ -37,7 +37,9 @@ func delegate() {
 		fmt.Printf("resp=%v\n", resp.Body)
 		err := json.Unmarshal([]byte(resp.Body), &r)
 		if err != nil {
-			fmt.Printf("delegate 成功 result=%v\n", r.Result)
+			fmt.Printf("解析出错  err=%v\n", err)
+		} else {
+			fmt.Printf("delegate 成功   result=%v\n", r.Result)
 		}
 
 	}

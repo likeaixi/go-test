@@ -48,7 +48,7 @@ func main() {
 	fmt.Printf("blockNumber=%v\n", blockNumber)
 
 	searchNumber := big.NewInt(0)
-	shift := big.NewInt(2000)
+	shift := big.NewInt(20)
 	searchNumber.Sub(blockNumber, shift)
 	fmt.Printf("searchNumber=%v\n", searchNumber)
 

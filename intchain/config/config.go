@@ -68,6 +68,18 @@ type Validator struct {
 	RemainEpoch string `json:"remain_epoch"`
 }
 
+type VoteRPC struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
+}
+
+type RevealVoteRPC struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
+}
+
 // Delegation RPC  数据
 type DelegateRPC struct {
 	JsonRPC string `json:"jsonrpc"`
@@ -82,3 +94,8 @@ type CandidateRPC struct {
 }
 
 // Chain RPC 数据
+type SignAddressRPC struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
+}
