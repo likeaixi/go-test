@@ -22,6 +22,7 @@ type RevealVoteParams struct {
 
 func main() {
 	sign, err := signAddress()
+	fmt.Printf("sign %v\n", sign)
 	if err != nil {
 		fmt.Printf("sign address err %v\n", err)
 	} else {
@@ -39,7 +40,7 @@ func signAddress() (sign string, err error) {
 
 	params := SignAddress{
 		From:    "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
-		PrivKey: "719D72D7CE74236FF967954960B086C9A15B5512D506268E855B947269B25587",
+		PrivKey: "0x719D72D7CE74236FF967954960B086C9A15B5512D506268E855B947269B25587",
 	}
 
 	postData := map[string]interface{}{
@@ -69,7 +70,7 @@ func revealVote(sign string) (hash string, err error) {
 	params := RevealVoteParams{
 		From:      "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
 		PubKey:    "618CEAF6AD449B826E2521222A94426B82800202332251F0929EC47B36A647C65E00D2EA34C07A8EF7953C2E1555D8321449423CCFB0B64BB13090E7A433114D68F1C1891BAA20101E5CC8E2B10E207F5D21D1A1116547E1EED5E92FDFE4F5E58119C5267B82AE06BBA5016827396B74E1ECDCC3801746242CA24C7749EB2F88",
-		Amount:    "0x152d02c7e14af6800000",
+		Amount:    "0x152d02c7e14af68000000",
 		Salt:      "like",
 		Signature: sign,
 	}
