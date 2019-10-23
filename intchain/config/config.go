@@ -9,8 +9,8 @@ type Headers map[string]string
 
 var LocalConfig = Config{
 	//RpcUrl:     "http://127.0.0.1:8545/intchain",
-	//RpcUrl:     "http://127.0.0.1:7000/intchain",
-	RpcUrl: "http://127.0.0.1:6968/intchain",
+	RpcUrl: "http://127.0.0.1:7000/intchain",
+	//RpcUrl: "http://127.0.0.1:6968/intchain",
 	Headers: map[string]string{
 		"Content-Type": "application/json",
 	},
@@ -95,6 +95,13 @@ type CandidateRPC struct {
 
 // Chain RPC 数据
 type SignAddressRPC struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
+}
+
+// INT Chain
+type RawTransactionRPC struct {
 	JsonRPC string `json:"jsonrpc"`
 	ID      string `json:"id"`
 	Result  string `json:"result"`

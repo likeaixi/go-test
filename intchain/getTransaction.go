@@ -3,19 +3,18 @@ package main
 import (
 	"fmt"
 	"github.com/mikemintang/go-curl"
+	"go-test/intchain/config"
 )
 
 func main() {
-	//url := "http://127.0.0.1:7000/intchain"
-	url := "https://mainnet.infura.io/bWQAsi2JbfmO9YAoxOgm"
-	headers := map[string]string{
-		"Content-type": "application/json",
-	}
+	//url := "https://mainnet.infura.io/bWQAsi2JbfmO9YAoxOgm"
+	url := config.LocalConfig.RpcUrl
+	headers := config.ConHeaders
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
 		//"method":  "eth_getTransactionByHash",
 		"method": "eth_getTransactionReceipt",
-		"params": []interface{}{"0x7f15a26618873a799ae6427a215727fe93dbe52c8fe85d0c4702f49913f35912"},
+		"params": []interface{}{"0xe45653ac522f56a51791ddc0ee35c5ca75437f9c65547c9d3df100f03ac84742"},
 		"id":     "1",
 	}
 
