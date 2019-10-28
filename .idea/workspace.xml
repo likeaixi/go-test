@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e16af080-d97f-4974-9ad5-f5429267ceef" name="Default" comment="intchain: 添加 sendRawTransaction">
+    <list default="true" id="e16af080-d97f-4974-9ad5-f5429267ceef" name="Default" comment="intchain: 修改变量">
+      <change afterPath="$PROJECT_DIR$/intchain/decodeExtraData.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/applyCandidate.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/applyCandidate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/config/config.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/delegate.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/delegate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/getBlock.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/getBlock.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intchain/getTransaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/getTransaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intchain/sendRawTransaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/sendRawTransaction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/revealVote.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/revealVote.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intchain/sendTransaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/sendTransaction.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/utils/rpcRequest.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/utils/rpcRequest.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/intchain/voteNextEpoch.go" beforeDir="false" afterPath="$PROJECT_DIR$/intchain/voteNextEpoch.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,56 +28,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intchain/sendTransaction.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="436">
-              <caret line="48" column="53" lean-forward="true" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+            <state relative-caret-position="287">
+              <caret line="53" column="40" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/intchain/sendRawTransaction.go">
+        <entry file="file://$PROJECT_DIR$/intchain/applyCandidate.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
-              <folding>
-                <element signature="e#14#77#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/intchain/getBlock.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
-              <folding>
-                <element signature="e#14#94#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/intchain/getTransaction.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-              <folding>
-                <element signature="e#14#65#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/intchain/getTransactionCount.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="30" column="26" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+            <state relative-caret-position="76">
+              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
               <folding>
                 <element signature="e#14#101#0" expanded="true" />
               </folding>
@@ -79,10 +50,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/intchain/getBlock.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="562">
+              <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/intchain/getTransaction.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
+              <folding>
+                <element signature="e#14#65#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intchain/utils/rpcRequest.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="190">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding>
                 <element signature="e#15#103#0" expanded="true" />
               </folding>
@@ -93,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intchain/revealVote.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="849">
-              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
+            <state relative-caret-position="642">
+              <caret line="49" column="23" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="49" selection-end-column="23" />
               <folding>
                 <element signature="e#14#101#0" expanded="true" />
               </folding>
@@ -102,13 +94,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/intchain/getEpoch.go">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/intchain/decodeExtraData.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="622">
-              <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+            <state relative-caret-position="496">
+              <caret line="27" column="480" selection-start-line="27" selection-start-column="480" selection-end-line="27" selection-end-column="480" />
               <folding>
-                <element signature="e#14#65#0" expanded="true" />
+                <element signature="e#14#67#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intchain/delegate.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="20" column="28" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="248">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="42" />
               <folding>
                 <element signature="e#14#101#0" expanded="true" />
               </folding>
@@ -127,10 +119,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/intchain/voteNextEpoch.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="22" column="121" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intchain/config/config.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+            <state relative-caret-position="229">
+              <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
             </state>
           </provider>
         </entry>
@@ -162,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/basic/pointer.go" />
         <option value="$PROJECT_DIR$/basic/func.go" />
         <option value="$PROJECT_DIR$/basic/arrays.go" />
         <option value="$PROJECT_DIR$/basic/slices.go" />
@@ -202,17 +202,18 @@
         <option value="$PROJECT_DIR$/intchain/config.go" />
         <option value="$PROJECT_DIR$/intchain/becomeValidator.go" />
         <option value="$PROJECT_DIR$/intchain/getEpoch.go" />
-        <option value="$PROJECT_DIR$/intchain/applyCandidate.go" />
-        <option value="$PROJECT_DIR$/intchain/delegate.go" />
-        <option value="$PROJECT_DIR$/intchain/revealVote.go" />
-        <option value="$PROJECT_DIR$/intchain/voteNextEpoch.go" />
-        <option value="$PROJECT_DIR$/intchain/getBlock.go" />
         <option value="$PROJECT_DIR$/intchain/getTransactionCount.go" />
-        <option value="$PROJECT_DIR$/intchain/utils/rpcRequest.go" />
-        <option value="$PROJECT_DIR$/intchain/config/config.go" />
         <option value="$PROJECT_DIR$/intchain/sendRawTransaction.go" />
+        <option value="$PROJECT_DIR$/intchain/utils/rpcRequest.go" />
+        <option value="$PROJECT_DIR$/intchain/applyCandidate.go" />
         <option value="$PROJECT_DIR$/intchain/sendTransaction.go" />
+        <option value="$PROJECT_DIR$/intchain/delegate.go" />
+        <option value="$PROJECT_DIR$/intchain/voteNextEpoch.go" />
+        <option value="$PROJECT_DIR$/intchain/revealVote.go" />
         <option value="$PROJECT_DIR$/intchain/getTransaction.go" />
+        <option value="$PROJECT_DIR$/intchain/config/config.go" />
+        <option value="$PROJECT_DIR$/intchain/getBlock.go" />
+        <option value="$PROJECT_DIR$/intchain/decodeExtraData.go" />
       </list>
     </option>
   </component>
@@ -243,6 +244,18 @@
               <item name="go-test" type="b2602c69:ProjectViewProjectNode" />
               <item name="go-test" type="462c0819:PsiDirectoryNode" />
               <item name="intchain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go-test" type="462c0819:PsiDirectoryNode" />
+              <item name="intchain" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="go-test" type="b2602c69:ProjectViewProjectNode" />
+              <item name="go-test" type="462c0819:PsiDirectoryNode" />
+              <item name="intchain" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="go-test" type="b2602c69:ProjectViewProjectNode" />
@@ -297,7 +310,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build sendTransaction.go (1)">
+  <component name="RunManager" selected="Go Build.go build decodeExtraData.go">
+    <configuration name="go build decodeExtraData.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="go-test" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/intchain/decodeExtraData.go" />
+      <package value="go-test" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build getBlock.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-test" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -325,31 +347,22 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
-    <configuration name="go build sendRawTransaction.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build voteNextEpoch.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="go-test" />
       <working_directory value="$PROJECT_DIR$/" />
       <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/intchain/sendRawTransaction.go" />
-      <package value="go-test" />
-      <directory value="$PROJECT_DIR$/" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build sendTransaction.go (1)" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="go-test" />
-      <working_directory value="$PROJECT_DIR$/" />
-      <kind value="FILE" />
-      <filePath value="$PROJECT_DIR$/intchain/sendTransaction.go" />
+      <filePath value="$PROJECT_DIR$/intchain/voteNextEpoch.go" />
       <package value="go-test" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build sendTransaction.go (1)" />
-        <item itemvalue="Go Build.go build getTransaction.go" />
-        <item itemvalue="Go Build.go build sendRawTransaction.go" />
+        <item itemvalue="Go Build.go build decodeExtraData.go" />
         <item itemvalue="Go Build.go build getBlock.go" />
+        <item itemvalue="Go Build.go build getTransaction.go" />
         <item itemvalue="Go Build.go build revealVote.go" />
+        <item itemvalue="Go Build.go build voteNextEpoch.go" />
       </list>
     </recent_temporary>
   </component>
@@ -391,7 +404,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32920355" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978701" visible="true" weight="0.15752213" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4978701" visible="true" weight="0.25221238" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4288518" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -448,19 +461,10 @@
     <MESSAGE value="intchain: 添加投票的 rpc 方法" />
     <MESSAGE value="intchain: 添加成为 candidate 的方法" />
     <MESSAGE value="intchain: 添加 sendRawTransaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="intchain: 添加 sendRawTransaction" />
+    <MESSAGE value="intchain: 修改变量" />
+    <option name="LAST_COMMIT_MESSAGE" value="intchain: 修改变量" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/retriever/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="103" column="16" selection-start-line="103" selection-start-column="16" selection-end-line="103" selection-end-column="16" />
-          <folding>
-            <element signature="e#14#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/errorhanding/defer/defer.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -730,62 +734,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/applyCandidate.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#14#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/voteNextEpoch.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="22" column="85" selection-start-line="22" selection-start-column="85" selection-end-line="22" selection-end-column="85" />
-          <folding>
-            <element signature="e#14#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/intchain/getEpoch.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="622">
           <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
           <folding>
             <element signature="e#14#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/getBlock.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-          <folding>
-            <element signature="e#14#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/delegate.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="20" column="28" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="28" />
-          <folding>
-            <element signature="e#14#101#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/revealVote.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="849">
-          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
-          <folding>
-            <element signature="e#14#101#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -800,47 +754,101 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/config/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/utils/rpcRequest.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding>
-            <element signature="e#15#103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/intchain/sendRawTransaction.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="393">
+          <caret line="28" column="26" selection-start-line="28" selection-start-column="26" selection-end-line="28" selection-end-column="26" />
           <folding>
             <element signature="e#14#77#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/sendTransaction.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="53" column="40" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/applyCandidate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding>
+            <element signature="e#14#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/voteNextEpoch.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" column="121" selection-start-line="22" selection-start-column="99" selection-end-line="22" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/intchain/getTransaction.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="48" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        <state relative-caret-position="303">
+          <caret line="16" column="99" selection-start-line="16" selection-start-column="99" selection-end-line="16" selection-end-column="99" />
           <folding>
             <element signature="e#14#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intchain/sendTransaction.go">
+    <entry file="file://$PROJECT_DIR$/intchain/delegate.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="48" column="53" lean-forward="true" selection-start-line="48" selection-start-column="53" selection-end-line="48" selection-end-column="53" />
+        <state relative-caret-position="248">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="42" />
+          <folding>
+            <element signature="e#14#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/config/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/utils/rpcRequest.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
+          <folding>
+            <element signature="e#15#103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/getBlock.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="562">
+          <caret line="77" lean-forward="true" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/revealVote.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="49" column="23" lean-forward="true" selection-start-line="46" selection-start-column="8" selection-end-line="49" selection-end-column="23" />
+          <folding>
+            <element signature="e#14#101#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intchain/decodeExtraData.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="27" column="480" selection-start-line="27" selection-start-column="480" selection-end-line="27" selection-end-column="480" />
+          <folding>
+            <element signature="e#14#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

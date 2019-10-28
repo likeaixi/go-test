@@ -20,9 +20,9 @@ func main() {
 func delegate() {
 	var r config.DelegateRPC
 	params := DelegateParams{
-		From:      "INT3EYrA3Z3wA1P3AhWyvbRFPyPznqbR",
-		Candidate: "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
-		Amount:    "0x3635c9adc5dea00000", // 1000e18
+		From:      "INT37xpX1VzPTMsoBbHkVKmDnsp1VrnN",
+		Candidate: "INT3MUHiVzxaNdG1RAD7zQimzSZBtErX",
+		Amount:    "0x152d02c7e14af6800000", // 100000e18
 	}
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",

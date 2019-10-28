@@ -19,8 +19,8 @@ func main() {
 func voteNextEpoch() {
 	var r config.VoteRPC
 	params := VoteParams{
-		From:     "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
-		VoteHash: "0xa431ab9cb5d2750faeed74945d10c69372b938c2470d5b140de29f4d4aa22025", // amount "0x152d02c7e14af68000000"  salt "like"
+		From:     "INT3MUHiVzxaNdG1RAD7zQimzSZBtErX",
+		VoteHash: "0xbc9263f6e9fde4a9dba170a2b748d1e3e35055a7e0a98164d0c9cf00e6e12dd3", // amount "0x54b40b1f852bda000000"  salt "like"
 	}
 
 	postData := map[string]interface{}{

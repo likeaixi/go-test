@@ -45,14 +45,14 @@ func main() {
 
 	params = TxParams{
 		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-		From:     "INT3E9Li2B9gqCeQaC5nDWGhM9AZv3TJ",
-		To:       "INT3G4qmpJHS3bbzhuD2daQ1mnY3MoF4",
+		From:     "INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z",
+		To:       "INT37xpX1VzPTMsoBbHkVKmDnsp1VrnN",
 		Gas:      "0x76c0",
 		GasPrice: "0x2540be400",
 		//Value:    "0x1",
-		//Value: "0x33b2e3c9fd0803ce8000000",  // 1000000000e+18
-		Value: "0x152d02c7e14af6800000", // 100000e+18
-		Data:  "",
+		Value: "0x33b2e3c9fd0803ce8000000", // 1000000000e+18
+		//Value: "0x152d02c7e14af6800000", // 100000e+18
+		Data: "",
 	}
 
 	sendTransactions(url, headers, params)

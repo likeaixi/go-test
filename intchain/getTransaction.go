@@ -8,13 +8,13 @@ import (
 
 func main() {
 	//url := "https://mainnet.infura.io/bWQAsi2JbfmO9YAoxOgm"
-	url := config.LocalConfig.RpcUrl
+	url := config.RemoteConfig.RpcUrl
 	headers := config.ConHeaders
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
 		"method":  "eth_getTransactionByHash",
 		//"method": "eth_getTransactionReceipt",
-		"params": []interface{}{"0xa9c49e8e3e70cf66a8a9f361d313e3fc9ff45c52162863b66efcd5406d1d500f"},
+		"params": []interface{}{"0xec0ac17e85bef3b08ae3cf1cc1ef4a6adc7268f613b8704913b519304147372a"},
 		"id":     "1",
 	}
 

@@ -20,7 +20,7 @@ func main() {
 func applyCandidate() {
 	var r config.CandidateRPC
 	params := CandidateParams{
-		From:            "INT3MccCA7EtMzijJa2zjxoiSYzbNLE4",
+		From:            "INT3MUHiVzxaNdG1RAD7zQimzSZBtErX",
 		SecurityDeposit: "0x152d02c7e14af6800000", // 1e+23
 		Commission:      10,                       // 0-100
 	}

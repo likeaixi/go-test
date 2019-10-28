@@ -17,6 +17,7 @@ var LocalConfig = Config{
 }
 
 var RemoteConfig = Config{
+	//RpcUrl: "http://129.226.134.100:7003/intchain",
 	RpcUrl: "http://129.226.134.100:7000/intchain",
 	Headers: map[string]string{
 		"Content-Type": "application/json",
@@ -78,6 +79,15 @@ type RevealVoteRPC struct {
 	JsonRPC string `json:"jsonrpc"`
 	ID      string `json:"id"`
 	Result  string `json:"result"`
+}
+
+type ExtraDataRPC struct {
+	JsonRPC string `json:"jsonrpc"`
+	ID      string `json:"id"`
+	Result  string `json:"result"`
+}
+
+type ExtraData struct {
 }
 
 // Delegation RPC  数据
