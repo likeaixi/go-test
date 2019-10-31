@@ -9,16 +9,17 @@ type Headers map[string]string
 
 var LocalConfig = Config{
 	//RpcUrl:     "http://127.0.0.1:8545/intchain",
-	RpcUrl: "http://127.0.0.1:7000/intchain",
-	//RpcUrl: "http://127.0.0.1:6968/intchain",
+	//RpcUrl: "http://127.0.0.1:7000/intchain",
+	RpcUrl: "http://127.0.0.1:6968/intchain",
 	Headers: map[string]string{
 		"Content-Type": "application/json",
 	},
 }
 
 var RemoteConfig = Config{
-	//RpcUrl: "http://129.226.134.100:7003/intchain",
-	RpcUrl: "http://129.226.134.100:7000/intchain",
+	RpcUrl: "http://129.226.134.100:7003/intchain",
+	//RpcUrl: "http://129.226.134.100:7000/intchain",
+	//RpcUrl: "http://129.226.134.100:7004/intchain",
 	Headers: map[string]string{
 		"Content-Type": "application/json",
 	},

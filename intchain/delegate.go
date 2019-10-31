@@ -14,14 +14,20 @@ type DelegateParams struct {
 }
 
 func main() {
-	delegate()
+	//var fromList = []string{"INT3DspEEVQ3ngFuY338jAoEcNw61V1j", "INT39L38bTaQkmzoC6mTrjyb2hGy85J6", "INT3FkMb49rivDxEjVZ9a9HuAksL6iDR"}
+	var fromList = []string{"INT3ChZyJUaziuVRhP8wDm3utHDAvQgt", "INT3Paf5F2XoQqwWYaxoib6NfnDoBUgU", "INT3D78CcNArCwSQAzAfyXZPedQLbBS4"}
+
+	for _, v := range fromList {
+		delegate(v)
+	}
+
 }
 
-func delegate() {
+func delegate(from string) {
 	var r config.DelegateRPC
 	params := DelegateParams{
-		From:      "INT37xpX1VzPTMsoBbHkVKmDnsp1VrnN",
-		Candidate: "INT3MUHiVzxaNdG1RAD7zQimzSZBtErX",
+		From:      from,
+		Candidate: "INT3JF1CSRxna54ukUTgyew1VyUppGcD",
 		Amount:    "0x152d02c7e14af6800000", // 100000e18
 	}
 	postData := map[string]interface{}{

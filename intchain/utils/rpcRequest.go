@@ -8,7 +8,7 @@ import (
 )
 
 func RpcRequest(postData map[string]interface{}) (result *curl.Response, err error) {
-	url := config.RemoteConfig.RpcUrl
+	url := config.LocalConfig.RpcUrl
 
 	headers := config.ConHeaders
 

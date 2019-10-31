@@ -13,14 +13,22 @@ type VoteParams struct {
 }
 
 func main() {
-	voteNextEpoch()
+	// amount "0x54b40b1f852bda000000"  salt "like"
+	var voteList = []*VoteParams{
+		{From: "INT3LJK4UctyCwv5mdvnpBYvMbRTZBia", VoteHash: "0xe65ffe860e86a567086fa58c136f81e3d4fd3a12dd6492e8f39e86b6ebde3716"},
+		{From: "INT3JF1CSRxna54ukUTgyew1VyUppGcD", VoteHash: "0x7337af0cbf11c804af66b570340b2ae75802464e9d2a9d3a64a967fded50e33f"},
+	}
+
+	for _, v := range voteList {
+		voteNextEpoch(v.From, v.VoteHash)
+	}
 }
 
-func voteNextEpoch() {
+func voteNextEpoch(from, hash string) {
 	var r config.VoteRPC
 	params := VoteParams{
-		From:     "INT3MUHiVzxaNdG1RAD7zQimzSZBtErX",
-		VoteHash: "0xbc9263f6e9fde4a9dba170a2b748d1e3e35055a7e0a98164d0c9cf00e6e12dd3", // amount "0x54b40b1f852bda000000"  salt "like"
+		From:     from,
+		VoteHash: hash,
 	}
 
 	postData := map[string]interface{}{
