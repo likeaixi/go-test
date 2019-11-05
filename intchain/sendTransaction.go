@@ -26,7 +26,7 @@ func main() {
 	//s := `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from": "0x37eeb099c6d751e7229df825d40629612e134f82","to": "0x6ee600fc8e27c562a63ff5e56d1b788bca6f5c2e","gas": "0x76c0","gasPrice": "0x2540be400","value": "0x1","data": ""}],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:7000/intchain`
 
 	//url := config.RemoteConfig.RpcUrl
-	url := config.RemoteConfig.RpcUrl
+	url := config.LocalConfig.RpcUrl
 
 	headers := config.ConHeaders
 
@@ -45,14 +45,14 @@ func main() {
 
 	params = TxParams{
 		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-		From:     "INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z",
-		To:       "INT3D78CcNArCwSQAzAfyXZPedQLbBS4",
+		From:     "INT3JvsME4UnZMxcU2vp4HjfjcAZeW47",
+		To:       "INT38cqij9EtpxCZk9wrRY8u5U9reZAp",
 		Gas:      "0x76c0",
 		GasPrice: "0x2540be400",
 		//Value:    "0x1",
-		Value: "0x33b2e3c9fd0803ce8000000", // 1000000000e+18
-		//Value: "0x152d02c7e14af6800000", // 100000e+18
-		Data: "",
+		//Value: "0x33b2e3c9fd0803ce8000000", // 1000000000e+18
+		Value: "0x152d02c7e14af6800000", // 100000e+18
+		Data:  "",
 	}
 
 	sendTransactions(url, headers, params)
@@ -95,7 +95,7 @@ func sendTransactions(url string, headers map[string]string, params TxParams) (h
 		"id":      "1",
 	}
 
-	for i := 0; i < 1; i++ {
+	for i := 0; i < 500000; i++ {
 		req := curl.NewRequest()
 		resp, err := req.
 			SetUrl(url).

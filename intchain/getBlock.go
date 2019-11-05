@@ -40,6 +40,7 @@ type Body struct {
 
 var blockNumber *big.Int
 var blockTime *big.Int
+var totalTxs int
 
 func main() {
 	//curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["latest", true],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:7000/intchain
@@ -48,18 +49,22 @@ func main() {
 	fmt.Printf("blockNumber=%v\n", blockNumber)
 
 	searchNumber := big.NewInt(0)
-	shift := big.NewInt(100)
+	shift := big.NewInt(2300)
 	searchNumber.Sub(blockNumber, shift)
 	fmt.Printf("searchNumber=%v\n", searchNumber)
 
+	totalTxs = 0
 	for i := 0; big.NewInt(int64(i)).Cmp(shift) < 0; i++ {
 		getBlock("0x"+(big.NewInt(0).Add(searchNumber, big.NewInt(int64(i)))).Text(16), i)
 	}
+	fmt.Printf("total transactions are %v\n", totalTxs)
 
 }
 
 func getBlock(n interface{}, i int) {
-	url := config.RemoteConfig.RpcUrl
+	url := config.LocalConfig.RpcUrl
+	//url := config.RemoteConfig.RpcUrl
+	//url := "https://mainnet.infura.io/bWQAsi2JbfmO9YAoxOgm"
 
 	headers := config.ConHeaders
 	postData := map[string]interface{}{
@@ -92,9 +97,10 @@ func getBlock(n interface{}, i int) {
 						t := hexToBigInt(result.Timestamp)
 						cTime := big.NewInt(0)
 
-						//if txNumber > 500 {
-						fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v, miner=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime), result.Miner)
-						//}
+						totalTxs += txNumber
+						if txNumber > 1 {
+							fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v, miner=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime), result.Miner)
+						}
 
 						blockTime = t
 					} else if i == 0 {

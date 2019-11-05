@@ -12,9 +12,9 @@ func main() {
 	headers := config.ConHeaders
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
-		"method":  "eth_getTransactionByHash",
-		//"method": "eth_getTransactionReceipt",
-		"params": []interface{}{"0x73dbedebb7f61cb2723e955cd14a0c79775cb09632ac9894ea3da501a9cc7694"},
+		//"method":  "eth_getTransactionByHash",
+		"method": "eth_getTransactionReceipt",
+		"params": []interface{}{"0x02ee76e2d6683fbc63af2cf754e5bbe9730efe65f6e4e452dc67029200da182e"},
 		"id":     "1",
 	}
 

@@ -14,7 +14,7 @@ func main() {
 	}
 	fmt.Printf("epochNumber=%v\n", epochNumber)
 
-	epoch, err := getEpoch("0x1F")
+	epoch, err := getEpoch(epochNumber)
 	if err != nil {
 		fmt.Printf("获取epoch 失败 err=%v\n", err)
 	}
