@@ -18,8 +18,8 @@ var LocalConfig = Config{
 
 var RemoteConfig = Config{
 	//RpcUrl: "http://129.226.134.100:7003/intchain",
-	RpcUrl: "http://129.226.134.100:7000/intchain",
-	//RpcUrl: "http://129.226.134.100:7004/intchain",
+	//RpcUrl: "http://129.226.134.100:7000/intchain",
+	RpcUrl: "http://129.226.63.13:8555/intchain",
 	Headers: map[string]string{
 		"Content-Type": "application/json",
 	},

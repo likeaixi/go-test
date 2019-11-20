@@ -8,23 +8,63 @@ import (
 )
 
 type VoteParams struct {
-	From     string `josn:"from"`
+	From     string `json:"from"`
 	VoteHash string `json:"vote_hash"`
 }
 
-func main() {
-	// amount "0x54b40b1f852bda000000"  salt "like"
-	var voteList = []*VoteParams{
-		{From: "INT3LJK4UctyCwv5mdvnpBYvMbRTZBia", VoteHash: "0xe65ffe860e86a567086fa58c136f81e3d4fd3a12dd6492e8f39e86b6ebde3716"},
-		{From: "INT3JF1CSRxna54ukUTgyew1VyUppGcD", VoteHash: "0x7337af0cbf11c804af66b570340b2ae75802464e9d2a9d3a64a967fded50e33f"},
-	}
+type VoteHashParams struct {
+	From   string `jsn:"from"`
+	PubKey string `json:"pub_key"`
+	Amount string `json:"amount"`
+	Salt   string `json:"salt"`
+}
 
-	for _, v := range voteList {
-		voteNextEpoch(v.From, v.VoteHash)
+func main() {
+	for i, v := range config.PrivValidators {
+		hash, err := getVoteHash(v.Address, v.ConsPubKey)
+		if err != nil {
+			fmt.Printf("get vote hash err %v\n", err)
+		} else if i == 1 || i == 5 {
+			h, err := voteNextEpoch(v.Address, hash)
+			if err != nil {
+				fmt.Printf("vote next epoch err %v\n", err)
+			}
+			fmt.Printf("vote next epoch hash %v\n", h)
+		}
+
 	}
 }
 
-func voteNextEpoch(from, hash string) {
+func getVoteHash(from, pubkey string) (hash string, err error) {
+	var r config.VoteRPC
+	params := VoteHashParams{
+		From:   from,
+		PubKey: pubkey,
+		Amount: "0x54b40b1f852bda000000",
+		Salt:   "intchain",
+	}
+
+	postData := map[string]interface{}{
+		"jsonrpc": "2.0",
+		"method":  "tdm_getVoteHash",
+		"params":  []interface{}{params.From, params.PubKey, params.Amount, params.Salt},
+		"id":      "1",
+	}
+
+	resp, err := utils.RpcRequest(postData)
+	if err != nil {
+		return "", err
+	}
+
+	err = json.Unmarshal([]byte(resp.Body), &r)
+	if err != nil {
+		return "", err
+	}
+
+	return r.Result, nil
+}
+
+func voteNextEpoch(from, hash string) (h string, err error) {
 	var r config.VoteRPC
 	params := VoteParams{
 		From:     from,
@@ -40,16 +80,15 @@ func voteNextEpoch(from, hash string) {
 
 	resp, err := utils.RpcRequest(postData)
 	if err != nil {
-		fmt.Printf("vote 失败 err %v\n", err)
-	} else {
-		fmt.Printf("resp %v\n", resp.Body)
-		err := json.Unmarshal([]byte(resp.Body), &r)
-		if err != nil {
-			fmt.Printf("解析出错 err %v\n", err)
-		} else {
-			fmt.Printf("vote 成功 resutl %v\n", r.Result)
-		}
-
+		return "", err
 	}
+
+	err = json.Unmarshal([]byte(resp.Body), &r)
+
+	if err != nil {
+		return "", err
+	}
+
+	return r.Result, nil
 
 }

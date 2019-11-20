@@ -49,7 +49,7 @@ func main() {
 	fmt.Printf("blockNumber=%v\n", blockNumber)
 
 	searchNumber := big.NewInt(0)
-	shift := big.NewInt(2300)
+	shift := big.NewInt(10000)
 	searchNumber.Sub(blockNumber, shift)
 	fmt.Printf("searchNumber=%v\n", searchNumber)
 
@@ -98,7 +98,7 @@ func getBlock(n interface{}, i int) {
 						cTime := big.NewInt(0)
 
 						totalTxs += txNumber
-						if txNumber > 1 {
+						if txNumber > 1000 {
 							fmt.Printf("index=%v, blockNumber=%v, blockHash=%v, transactionCount=%v, costTime=%v, miner=%v\n\n", i, bNumber, result.Hash, txNumber, cTime.Sub(t, blockTime), result.Miner)
 						}
 

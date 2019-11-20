@@ -1,18 +1,12 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"github.com/mikemintang/go-curl"
 	"go-test/intchain/config"
+	"go-test/intchain/utils"
 )
 
-//type postData struct {
-//	JsonRPC string    `json:"jsonrpc"`
-//	Method  string    `json:"method"`
-//	Params  []Params  `json:"params"`
-//	ID      string    `json:"id"`
-//}
-//
 type TxParams struct {
 	From     string `json:"from"`
 	To       string `json:"to"`
@@ -23,43 +17,41 @@ type TxParams struct {
 }
 
 func main() {
-	//s := `curl -X POST --data '{"jsonrpc":"2.0","method":"eth_sendTransaction","params":[{"from": "0x37eeb099c6d751e7229df825d40629612e134f82","to": "0x6ee600fc8e27c562a63ff5e56d1b788bca6f5c2e","gas": "0x76c0","gasPrice": "0x2540be400","value": "0x1","data": ""}],"id":1}' -H 'content-type: application/json;' http://127.0.0.1:7000/intchain`
+	//sendTransaction("INT39du2xJEKp6Kz55m9XXt1ZgAqgTjr", "INT3JDmnFuFP12AZZGERnBDZh6Ao44NZ")
 
-	//url := config.RemoteConfig.RpcUrl
-	url := config.LocalConfig.RpcUrl
+	//sendTransactions()
 
-	headers := config.ConHeaders
+	//for _, v := range config.PrivValidators {
+	//	hash, err := sendTransaction("INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z", v.Address)
+	//	if err != nil {
+	//		fmt.Printf("交易发送失败， err %v", err)
+	//	}
+	//	fmt.Printf("hash %v\n", hash)
+	//}
+	//
+	//for _, v := range config.DelegateAddress {
+	//	hash, err := sendTransaction("INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z", v)
+	//	if err != nil {
+	//		fmt.Printf("交易发送失败， err %v", err)
+	//	}
+	//	fmt.Printf("hash %v\n", hash)
+	//}
+}
 
-	// 部署合约的交易
+func sendTransaction(from, to string) (hash string, err error) {
+	var r *config.RPCBody
+
 	params := TxParams{
-		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-		From:     "0x6388a9d239ad1afcc7ca8d5c4ef2e1caeb588aca",
-		To:       "",
-		Gas:      "0x4c4b40",
-		GasPrice: "",
-		Value:    "",
-		Data:     "0x60606040523415600e57600080fd5b60d38061001c6000396000f300606060405260043610603e5763ffffffff7c0100000000000000000000000000000000000000000000000000000000600035041663c6888fa181146043575b600080fd5b3415604d57600080fd5b60566004356068565b60405190815260200160405180910390f35b60007f24abdb5865df5079dcc5ac590ff6f01d5c16edbc5fab4e195d9febd1114503da8260070260405190815260200160405180910390a150600702905600a165627a7a7230582093e2ed97247c1e6c1d67df14ef4f815ae6eaeaedd13aa85f4cce214602a91a310029",
-	}
-
-	//sendTransaction(url, headers, params)
-
-	params = TxParams{
-		//From: "0x37eeb099c6d751e7229df825d40629612e134f82",
-		From:     "INT3JvsME4UnZMxcU2vp4HjfjcAZeW47",
-		To:       "INT38cqij9EtpxCZk9wrRY8u5U9reZAp",
+		From:     from,
+		To:       to,
 		Gas:      "0x76c0",
 		GasPrice: "0x2540be400",
 		//Value:    "0x1",
-		//Value: "0x33b2e3c9fd0803ce8000000", // 1000000000e+18
-		Value: "0x152d02c7e14af6800000", // 100000e+18
-		Data:  "",
+		Value: "0x33b2e3c9fd0803ce8000000", // 1000000000e+18
+		//Value: "0x152d02c7e14af6800000", // 100000e+18
+		Data: "",
 	}
 
-	sendTransactions(url, headers, params)
-
-}
-
-func sendTransaction(url string, headers map[string]string, params TxParams) (hash string, err error) {
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
 		"method":  "eth_sendTransaction",
@@ -67,27 +59,33 @@ func sendTransaction(url string, headers map[string]string, params TxParams) (ha
 		"id":      "1",
 	}
 
-	req := curl.NewRequest()
-	resp, err := req.
-		SetUrl(url).
-		SetHeaders(headers).
-		SetPostData(postData).
-		Post()
-
+	resp, err := utils.RpcRequest(postData)
 	if err != nil {
-		fmt.Printf("交易发送失败， err=%v\n", err)
-	} else {
-		if resp.IsOk() {
-			fmt.Printf("交易发送成功, body=%v\n", resp.Body)
-		} else {
-			fmt.Printf("交易发送失败, raw=%v\n", resp.Raw)
-		}
+		return "", err
 	}
 
-	return "", nil
+	err = json.Unmarshal([]byte(resp.Body), &r)
+	if err != nil {
+		return "", err
+	}
+
+	return r.Result, err
 }
 
-func sendTransactions(url string, headers map[string]string, params TxParams) (hash string, err error) {
+func sendTransactions() (hash string, err error) {
+	var r *config.RPCBody
+
+	params := TxParams{
+		From:     "INT3CpFuk2cJ1te9WZV1w8Y3wkQCcA5Z",
+		To:       "INT38cqij9EtpxCZk9wrRY8u5U9reZAp",
+		Gas:      "0x76c0",
+		GasPrice: "0x2540be400",
+		Value:    "0x1",
+		//Value: "0x33b2e3c9fd0803ce8000000", // 1000000000e+18
+		//Value: "0x152d02c7e14af6800000", // 100000e+18
+		Data: "",
+	}
+
 	postData := map[string]interface{}{
 		"jsonrpc": "2.0",
 		"method":  "eth_sendTransaction",
@@ -95,22 +93,17 @@ func sendTransactions(url string, headers map[string]string, params TxParams) (h
 		"id":      "1",
 	}
 
-	for i := 0; i < 500000; i++ {
-		req := curl.NewRequest()
-		resp, err := req.
-			SetUrl(url).
-			SetHeaders(headers).
-			SetPostData(postData).
-			Post()
+	for i := 0; i < 100000; i++ {
+		resp, err := utils.RpcRequest(postData)
 
 		if err != nil {
 			fmt.Printf("交易发送失败， err=%v\n", err)
 		} else {
-			if resp.IsOk() {
-				fmt.Printf("交易发送成功, body=%v\n", resp.Body)
-			} else {
-				fmt.Printf("交易发送失败, raw=%v\n", resp.Raw)
+			err := json.Unmarshal([]byte(resp.Body), &r)
+			if err != nil {
+				fmt.Printf("交易发送失败， err %v", err)
 			}
+			fmt.Printf("交易发送成功， hash %v", r.Result)
 		}
 	}
 

@@ -14,13 +14,17 @@ type CandidateParams struct {
 }
 
 func main() {
-	applyCandidate()
+	//for _, v := range config.PrivValidators {
+	//	applyCandidate(v.Address)
+	//}
+
+	applyCandidate("INT3JDmnFuFP12AZZGERnBDZh6Ao44NZ")
 }
 
-func applyCandidate() {
+func applyCandidate(from string) {
 	var r config.CandidateRPC
 	params := CandidateParams{
-		From:            "INT3JF1CSRxna54ukUTgyew1VyUppGcD",
+		From:            from,
 		SecurityDeposit: "0x152d02c7e14af6800000", // 1e+23
 		Commission:      10,                       // 0-100
 	}

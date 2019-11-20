@@ -14,20 +14,29 @@ type DelegateParams struct {
 }
 
 func main() {
-	//var fromList = []string{"INT3DspEEVQ3ngFuY338jAoEcNw61V1j", "INT39L38bTaQkmzoC6mTrjyb2hGy85J6", "INT3FkMb49rivDxEjVZ9a9HuAksL6iDR"}
-	var fromList = []string{"INT3ChZyJUaziuVRhP8wDm3utHDAvQgt", "INT3Paf5F2XoQqwWYaxoib6NfnDoBUgU", "INT3D78CcNArCwSQAzAfyXZPedQLbBS4"}
+	var fromList = []string{"INT39NQ6EoRUqK6ypvmqPx7j7ZsskGN4", "INT3HQ652WaqNVhuDAYiNd1iKRbgBeo3", "INT3MxpSzfLKEQDQVG9ZruyjivKR4Dpz"}
 
 	for _, v := range fromList {
-		delegate(v)
+		for i, p := range config.PrivValidators {
+			if i == 0 {
+
+				hash, err := delegate(v, p.Address)
+				if err != nil {
+					fmt.Printf(" delegate err %v\n", err)
+				}
+
+				fmt.Printf("delegate hash %v\n", hash)
+			}
+		}
 	}
 
 }
 
-func delegate(from string) {
+func delegate(from, candidate string) (hash string, err error) {
 	var r config.DelegateRPC
 	params := DelegateParams{
 		From:      from,
-		Candidate: "INT3JF1CSRxna54ukUTgyew1VyUppGcD",
+		Candidate: candidate,
 		Amount:    "0x152d02c7e14af6800000", // 100000e18
 	}
 	postData := map[string]interface{}{
@@ -38,15 +47,13 @@ func delegate(from string) {
 	}
 	resp, err := utils.RpcRequest(postData)
 	if err != nil {
-		fmt.Printf("delegate失败, err=%v\n", err)
-	} else {
-		fmt.Printf("resp=%v\n", resp.Body)
-		err := json.Unmarshal([]byte(resp.Body), &r)
-		if err != nil {
-			fmt.Printf("解析出错  err=%v\n", err)
-		} else {
-			fmt.Printf("delegate 成功   result=%v\n", r.Result)
-		}
-
+		return "", err
 	}
+
+	err = json.Unmarshal([]byte(resp.Body), &r)
+	if err != nil {
+		return "", err
+	}
+
+	return r.Result, nil
 }
