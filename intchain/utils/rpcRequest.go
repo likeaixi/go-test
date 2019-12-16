@@ -9,7 +9,8 @@ import (
 
 func RpcRequest(postData map[string]interface{}) (result *curl.Response, err error) {
 	//url := config.RemoteConfig.RpcUrl
-	url := config.LocalConfig.RpcUrl
+	//url := config.LocalConfig.RpcUrl
+	url := "http://101.132.121.71:8000/UpGetSwapTokenList"
 
 	headers := config.ConHeaders
 
